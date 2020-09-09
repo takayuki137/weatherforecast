@@ -22,13 +22,16 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
 
-    DownloadTask task = new DownloadTask();
-
     public void button(View view){
+        DownloadTask task = new DownloadTask();
         String text = editText.getText().toString();
         Log.i("aaaaaaaa",text);
         String url = "https://api.openweathermap.org/data/2.5/weather?q="+text+"&appid=a7ed436f9ff15392aa322849c775f894";
-        task.execute(url);
+        try {
+            task.execute(url);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         //https://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=a7ed436f9ff15392aa322849c775f894
 
 
